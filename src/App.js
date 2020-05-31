@@ -62,7 +62,7 @@ const App = () => {
     } catch (exception) {
       setUsername('')
       setPassword('')
-      alert(exception)
+      setNotificationTimer(`wrong credentials! Error: ${exception}`)
     }
   }
 
@@ -75,7 +75,7 @@ const App = () => {
         setNotes(notes.map(note => note.id !== id ? note : returnedNote))
       })
       .catch(error => {
-        setNotificationTimer(`The note was not found! ERror: ${error}`)
+        setNotificationTimer(`The note was not found! Error: ${error}`)
         setNotes(notes.filter(n => n.id !== id))
       })
   }
